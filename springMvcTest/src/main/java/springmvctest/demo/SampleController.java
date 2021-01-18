@@ -1,19 +1,19 @@
 package springmvctest.demo;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class SampleController {
 
 //    @RequestMapping(value = "/hello" , method = {RequestMethod.GET,RequestMethod.PUT})
-    @GetMapping("/hello")
+    @GetMapping("/events/{id}")
     @ResponseBody
-    public String hello(){
-        return "hello";
+    public Event hello(@PathVariable Integer id, @MatrixVariable String name){
+        Event event = new Event();
+        event.setId(id);
+        event.setName(name);
+        return event;
     }
 
 }

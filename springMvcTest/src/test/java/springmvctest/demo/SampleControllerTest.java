@@ -10,11 +10,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 
 @RunWith(SpringRunner.class)
@@ -26,9 +25,9 @@ class SampleControllerTest {
 
     @Test
     public void helloTest() throws Exception{
-        mockMvc.perform(get("/hello")).andDo(print()).andExpect(status().isOk()).andExpect(content().string("hello"));
-        mockMvc.perform(put("/hello")).andDo(print()).andExpect(status().isMethodNotAllowed());
-        mockMvc.perform(post("/hello")).andDo(print()).andExpect(status().isMethodNotAllowed());
+        mockMvc.perform(get("/events/1;name=sungwon"))
+                .andDo(print()).andExpect(status().isOk())
+                .andExpect(jsonPath("id").value(1));
     }
 
 }
