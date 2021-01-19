@@ -1,9 +1,12 @@
 package springmvctest.demo;
 
+import javax.validation.constraints.Min;
+
 public class Event {
 
     private Integer id;
 
+    @Min(0)
     private Integer limit;
 
     public Integer getId() {
