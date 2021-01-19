@@ -5,11 +5,16 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @Controller
+@SessionAttributes("event")
 public class SampleController {
 
     @GetMapping("/events/form")
@@ -21,16 +26,27 @@ public class SampleController {
     }
 
     @PostMapping("/events")
-    @ResponseBody
-    public Event getEvent(@Validated(Event.ValidateName.class) @ModelAttribute Event event, BindingResult bindingResult){
-        //Map<String, String> params
+    public String createEvent(@Validated @ModelAttribute Event event,
+                              BindingResult bindingResult,
+                              SessionStatus sessionStatus){
         if(bindingResult.hasErrors()){
-            System.out.println("========================");
-            bindingResult.getAllErrors().forEach(c->{
-                System.out.println(c.toString());
-            });
+            return "/events/form";
         }
-        return event;
+        sessionStatus.setComplete();
+        return "redirect:/events/list";
+    }
+
+    @GetMapping("/events/list")
+    public String getEvents(Model model){
+        Event event = new Event();
+        event.setName("spring");
+        event.setLimit(10);
+
+        List<Event> eventList = new ArrayList<>();
+        eventList.add(event);
+
+        model.addAttribute(eventList);
+        return "/events/list";
     }
 
 }
