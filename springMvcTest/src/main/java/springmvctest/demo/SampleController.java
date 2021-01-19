@@ -3,6 +3,7 @@ package springmvctest.demo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -21,7 +22,7 @@ public class SampleController {
 
     @PostMapping("/events")
     @ResponseBody
-    public Event getEvent(@Valid @ModelAttribute Event event, BindingResult bindingResult){
+    public Event getEvent(@Validated(Event.ValidateName.class) @ModelAttribute Event event, BindingResult bindingResult){
         //Map<String, String> params
         if(bindingResult.hasErrors()){
             System.out.println("========================");
