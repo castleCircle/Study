@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@SessionAttributes("event")
+//@SessionAttributes("event")
 public class SampleController {
 
     @GetMapping("/events/form/name")
