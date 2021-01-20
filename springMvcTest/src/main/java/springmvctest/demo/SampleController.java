@@ -49,19 +49,16 @@ public class SampleController {
             return "/events/form-limit";
         }
         sessionStatus.setComplete();
-        attributes.addAttribute("name",event.getName());
-        attributes.addAttribute("limit",event.getLimit());
+        attributes.addFlashAttribute("newEvent",event);
         return "redirect:/events/list";
     }
 
 
     @GetMapping("/events/list")
-    public String getEvents(@RequestParam String name , @RequestParam Integer limit ,  Model model,HttpSession httpSession){
+    public String getEvents(Model model,HttpSession httpSession){
         LocalDateTime visitTime = (LocalDateTime) httpSession.getAttribute("visitTime");
 
-        Event newEvent = new Event();
-        newEvent.setName(name);
-        newEvent.setLimit(limit);
+        Event newEvent = (Event)model.asMap().get("newEvent");
 
         Event event = new Event();
         event.setName("Spring");
