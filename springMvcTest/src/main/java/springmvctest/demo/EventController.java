@@ -21,17 +21,6 @@ import java.util.Map;
 @SessionAttributes("event")
 public class EventController {
 
-    @InitBinder
-    public void initEventBinder(WebDataBinder webDataBinder){
-        webDataBinder.setDisallowedFields("id");
-        webDataBinder.addValidators(new EventValidator());
-    }
-
-    @ModelAttribute
-    public void categories(Model model){
-        model.addAttribute("categories", Arrays.asList("study","seminar","hobby"));
-    }
-
 //    @ModelAttribute("categories")
 //    public List<String> categories(Model model){
 //        return Arrays.asList("study","seminar","hobby");
@@ -41,8 +30,9 @@ public class EventController {
 
     @GetMapping("/events/form/name")
     public String eventsFormName(Model model){
-        model.addAttribute("event",new Event());
-        return "/events/form-name";
+        throw new EventException();
+//        model.addAttribute("event",new Event());
+//        return "/events/form-name";
     }
 
     @PostMapping("/events/form/name")
