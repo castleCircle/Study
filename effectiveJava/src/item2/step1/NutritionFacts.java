@@ -1,4 +1,4 @@
-package item2;
+package item2.step1;
 
 public class NutritionFacts {
 

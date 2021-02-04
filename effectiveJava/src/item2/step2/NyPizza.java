@@ -1,4 +1,4 @@
-package item2;
+package item2.step2;
 
 import java.util.Objects;
 
@@ -27,8 +27,6 @@ public class NyPizza extends Pizza{
         super(builder);
         size = builder.size;
     }
-
-
 
     public static void main(String[] args) {
         Pizza build = new Builder(Size.SMALL).addTopping(Topping.SAUSAGE).addTopping(Topping.ONION).build();

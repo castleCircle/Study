@@ -1,4 +1,4 @@
-package item2;
+package item2.step2;
 
 import java.util.EnumSet;
 import java.util.Objects;
