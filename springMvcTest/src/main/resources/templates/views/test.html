@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create New Event</title>
+</head>
+<body>
+<h1>Test</h1>
+<div th:text="${test}">12</div>
+
+<br/>
+<br/>
+<hr/>
+<!--반목문일 경우 -->
+<h1>반복문 Sample</h1>
+<h3>특정index 이상</h3>
+<div th:each="t,status : ${data}" th:unless="${status.index < 1}">
+    <div>===============[start]================</div>
+    <div th:text="${t.name}">a</div>
+    <div th:text="${t.age}">b</div>
+    <div th:text="${status.index}">c</div>
+    <div th:text="${status.count}">d</div>
+    <div th:text="${status.size}">e</div>
+    <div>===============[end]================</div>
+</div>
+
+<h3>특정index 이하</h3>
+<div th:each="t,status : ${data}" th:if="${status.index < 2}">
+    <div th:text="${t.name}"></div>
+    <div th:text="${t.age}"></div>
+    <div th:text="${t.bool}? 1 : 2">yes</div>
+</div>
+
+
+<h1>링크</h1>
+<li><a th:href="@{/testGet}">link</a></li>
+
+</body>
+</html>
