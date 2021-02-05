@@ -34,6 +34,12 @@
 
 <h1>링크</h1>
 <li><a th:href="@{/testGet}">link</a></li>
+<li><a th:href="@{/testGet(test=${test})}">link</a></li>
+
+
+<h1>util function</h1>
+<div th:text="${T(springmvctest.demo.thymeleaf.UtilJava).transData(test)}"></div>
+<div th:text="${@beanUtilJava.returnValue(test)}"></div>
 
 </body>
 </html>

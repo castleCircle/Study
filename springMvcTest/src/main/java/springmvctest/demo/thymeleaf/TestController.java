@@ -2,10 +2,7 @@ package springmvctest.demo.thymeleaf;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,8 +23,8 @@ public class TestController {
 
     @GetMapping("/testGet")
     @ResponseBody
-    public String testGet(){
-        return "hello";
+    public String testGet(@RequestParam String test){
+        return "hello" + test;
     }
 
 
