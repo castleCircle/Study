@@ -16,6 +16,7 @@ enum Direction{
     public String getKey() {
         return key;
     }
+    public abstract void getDirection();
 
     private Direction(String str){
         this.key = str;
@@ -26,5 +27,6 @@ public class DirectionTest {
     public static void main(String[] args) {
         System.out.println(Direction.EAST);
         System.out.println(Direction.EAST.getKey());
+        Direction.EAST.getDirection();
     }
 }
