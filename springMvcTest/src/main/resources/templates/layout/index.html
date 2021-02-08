@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="./layout/header.html :: fragment-header(title='헤더 영역입니다.',data='header')"></div>
+</head>
+<body>
+    <script th:inline="javascript">
+            var body = /*[[${body}]]*/ null;
+            console.log(typeof body);
+            console.log(body);
+    </script>
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+            //공식문서
+            var data = /*[[${data}]]*/ null;
+            console.log(typeof data);
+            console.log(data);
+        /*]]>*/
+    </script>
+    <h1>body</h1>
+    <footer th:replace="./layout/footer.html :: fragment-footer"></footer>
+    <th:block th:replace="./layout/footerblock.html :: fragment-footerblock"></th:block>
+    <div th:replace="./layout/footerblock.html :: fragment-footerblock"></div>
+    <div th:include="./layout/footerblock.html :: fragment-footerblock"></div>
+
+    <BR/>
+    <BR/>
+
+    <th:block th:insert="./layout/thblock.html :: footer-header"></th:block>
+    <th:block th:insert="./layout/thblock.html :: footer-body"></th:block>
+
+
+</body>
+</html>

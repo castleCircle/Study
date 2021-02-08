@@ -27,5 +27,12 @@ public class TestController {
         return "hello" + test;
     }
 
+    @GetMapping("/home")
+    public String home(Model model){
+        model.addAttribute("body","body 입니다.");
+        model.addAttribute("data","data 입니다.");
+        return "/layout/index";
+    }
+
 
 }

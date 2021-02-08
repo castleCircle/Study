@@ -25,7 +25,7 @@
 </div>
 
 <h3>특정index 이하</h3>
-<div th:each="t,status : ${data}" th:if="${status.index < 2}">
+<div th:block th:each="t,status : ${data}" th:if="${status.index < 2}">
     <div th:text="${t.name}"></div>
     <div th:text="${t.age}"></div>
     <div th:text="${t.bool}? 1 : 2">yes</div>
