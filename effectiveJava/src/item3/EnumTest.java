@@ -1,31 +1,33 @@
 package item3;
 
-import static item3.DisplayType.*;
+enum Fruit{
+    APPLE("red"){
+        public void print(){
+            System.out.println("Apple color is red");
+        }
+    },
+    BANANA("yello");
 
-enum DisplayType{
-    LED("Light emitting diode"),
-    OLED("Organic Light Emitting Diode"),
-    TEST("TEE","ds");
+    private final String color;
 
-    private final String key;
-
-    public String getKey() {
-        return key;
+    public String getColor() {
+        return color;
     }
 
-    DisplayType(String key) {
-        this.key = key;
+    public void print(){
+        System.out.println("none");
     }
 
-    DisplayType(String key,String a) {
-        this.key = key;
+    Fruit(String color) {
+        this.color = color;
     }
 }
 
 public class EnumTest {
     public static void main(String[] args) {
-        System.out.println(DisplayType.OLED);
-        System.out.println(DisplayType.OLED.getKey());
-        System.out.println(DisplayType.TEST.getKey());
+        System.out.println(Fruit.APPLE);
+        System.out.println(Fruit.APPLE.getColor());
+        Fruit.APPLE.print();
+        Fruit.BANANA.print();
     }
 }
