@@ -18,6 +18,7 @@
     <div>===============[start]================</div>
     <div th:text="${t.name}">a</div>
     <div th:text="${t.age}">b</div>
+    <span th:text="|comments size: ${#lists.size(t.lists)}|">10</span>
     <div th:text="${status.index}">c</div>
     <div th:text="${status.count}">d</div>
     <div th:text="${status.size}">e</div>

@@ -1,10 +1,22 @@
 package springmvctest.demo.thymeleaf;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Test {
 
     String name;
     Integer age;
     Boolean bool;
+    List<String> lists = new ArrayList<>();
+
+    public List<String> getLists() {
+        return lists;
+    }
+
+    public void setLists(List<String> lists) {
+        this.lists = lists;
+    }
 
     public Boolean getBool() {
         return bool;

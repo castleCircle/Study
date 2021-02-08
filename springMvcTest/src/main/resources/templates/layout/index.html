@@ -5,6 +5,12 @@
 </head>
 <body>
     <script th:inline="javascript">
+        console.log("======================")
+        var val = [[${data}]];
+        console.log(val);
+        console.log("======================")
+    </script>
+    <script th:inline="javascript">
             var body = /*[[${body}]]*/ null;
             console.log(typeof body);
             console.log(body);
@@ -22,6 +28,16 @@
     <th:block th:replace="./layout/footerblock.html :: fragment-footerblock"></th:block>
     <div th:replace="./layout/footerblock.html :: fragment-footerblock"></div>
     <div th:include="./layout/footerblock.html :: fragment-footerblock"></div>
+
+    <BR/>
+    <h1>===========Test=========</h1>
+    <div th:fragment="frag (one,two)">
+        <p th:text="${one} + ' - ' + ${two}">...</p>
+    </div>
+
+    <div th:replace="::frag (${data},${body})"></div>
+    <div th:insert="~{}"></div>
+
 
     <BR/>
     <BR/>

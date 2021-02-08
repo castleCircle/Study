@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html th:fragment="layout (title, content,datas,data)" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:replace="${title}">Layout Title</title>
+</head>
+<body>
+<h1>Layout H1</h1>
+<div th:replace="${content}">
+    <p>Layout content</p>
+</div>
+<footer>
+    Layout footer
+    <div th:each="t : ${datas}">
+        <div th:text="${t.name}">a</div>
+    </div>
+    <div th:with="test=${data}">
+        <h1 th:text="${test}"></h1>
+    </div>
+    <div>[[${data}]]!!</div>
+</footer>
+</body>
+</html>
