@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko-kr" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<body th:fragment="system-body">
+    <div class="la-contents">
+        <div class="la-pages">
+            <div class="la-page-dock">
+                <th:block layout:fragment="view-tab-header"></th:block>
+            </div>
+            <div class="la-page-content">
+                <th:block layout:fragment="view-tab-content"></th:block>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

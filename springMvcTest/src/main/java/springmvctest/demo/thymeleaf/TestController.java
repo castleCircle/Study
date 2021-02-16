@@ -28,7 +28,8 @@ public class TestController {
         model.addAttribute("data",list);
         model.addAttribute("test",1);
 
-        return "/views/test";
+//        return "/view/test";
+        return "index";
     }
 
     @GetMapping("/testGet")

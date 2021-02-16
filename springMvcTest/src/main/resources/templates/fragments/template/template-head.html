@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko-kr" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <!--configFragment 선언-->
+    <th:block th:fragment="template-head">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <link type="text/css" rel="stylesheet" th:href="${@domainConfig.getProperty('cssUrl')} + 'luplina-reset.css'">
+        <link type="text/css" rel="stylesheet" th:href="${@domainConfig.getProperty('cssUrl')} + 'entypo-plus.css'">
+        <link rel="stylesheet" type="text/css" th:href="${@domainConfig.getProperty('cssUrl')} + 'luplino-layout.css'">
+        <link type="text/css" rel="stylesheet" th:href="${@domainConfig.getProperty('cssUrl')} + 'common.css'">
+        <link rel="stylesheet" type="text/css" th:href="${@domainConfig.getProperty('cssUrl')} + 'luplino-grid.css'">
+        <link type="text/css" rel="stylesheet" th:href="${@domainConfig.getProperty('cssUrl')} + 'luplina.css'">
+
+        <script language="JavaScript">
+            function openNewWindow(window) {
+                open(window, "NewWindow", "left=0, top=0, toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=yes, width=200, height=200");
+            }
+        </script>
+    </th:block>
+
+</html>

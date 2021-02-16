@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ko-kr" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<body th:fragment="template-body">
+    <div class="page-root">
+        <div class="page-title">
+            <div class="left">
+                <h1>프로그램 관리</h1>
+            </div>
+            <div class="right">
+                <div class="la-button-group">
+                    <a href="#" class="la-button"><span class="text">목록</span></a>
+                    <a href="#" class="la-button disabled"><span class="text">삭제</span></a>
+                    <a href="#" class="la-button large"><span class="text">저장</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="page-fixed with-title">
+            <div class="search-cont full-height">
+                <!--조회테이블-->
+                <div class="search">
+                    <div class="search-body">
+                        <table class="search-table">
+                            <colgroup>
+                                <col width="120">
+                                <col>
+                                <col width="120">
+                                <col>
+                                <col width="120">
+                                <col>
+                                <col width="120">
+                                <col>
+                            </colgroup>
+                            <tbody>
+                            <tr>
+                                <td class="label">프로모션등록일</td>
+                                <td>
+                                    <div class="la-input-group">
+                                        <div class="la-picker-group" data-lopicker="basic" id="input-2-1">
+                                            <input type="text" class="form-control " placeholder="">
+                                            <!--
+                                                --><span class="input-group-addon">~</span>
+                                            <!--
+                                                --><input type="text" class="form-control" placeholder="">
+                                            <!--
+                                                --><span class="input-group-addon"><i
+                                                class="svg icon-cal"></i></span>
+                                        </div>
+                                        <select class="form-control">
+                                            <option value="0">최근3일</option>
+                                            <option value="1">최근7일</option>
+                                            <option value="2">30일</option>
+                                        </select>
+
+                                    </div>
+                                </td>
+                                <td class="label">프로모션상태</td>
+                                <td>
+                                    <input type="text" class="la-input disabled" disabled="disabled">
+                                </td>
+                                <td class="label">등록자</td>
+                                <td>
+                                    <div class="la-input-group">
+                                        <input type="text" id="input-1-1" class="la-input">
+                                        <a href="javascript:;" class="la-button small"
+                                           onclick="window.open('popup.html','name','resizable=no width=1000 height=700');return false"><i
+                                                class="icon-sarch"></i></a>
+                                    </div>
+                                </td>
+                                <td class="label">프로모션번호/명</td>
+                                <td>
+                                    <input type="text" class="la-input disabled" disabled="disabled">
+                                    <input type="text" class="la-input">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">기간</td>
+                                <td>
+                                </td>
+                                <td class="label">쿠폰번호/명</td>
+                                <td>
+                                </td>
+                                <td class="label">업태/종목</td>
+                                <td>
+                                </td>
+                                <td class="label">시간</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">카테고리 검색</td>
+                                <td>
+                                    <div class="la-input-group">
+                                        <select class="form-control">
+                                            <option value="0">대카테고리</option>
+                                            <option value="1">의류ㅁㅁ</option>
+                                            <option value="2"></option>
+                                        </select>
+                                        <select class="form-control">
+                                            <option value="0">중카테고리</option>
+                                            <option value="1">의류ㅁㅁ</option>
+                                            <option value="2"></option>
+                                        </select>
+                                        <select class="form-control">
+                                            <option value="0">소카테고리</option>
+                                            <option value="1">의류ㅁㅁ</option>
+                                            <option value="2"></option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--검색버튼-->
+                <div class="la-button-group search_btn">
+                    <a href="#" class="la-button"><span class="text">취소</span></a>
+                    <a href="#" class="la-button primary"><span class="text">조회</span></a>
+                </div>
+                <!--조회테이블 끝-->
+                <div class="data-cont">
+                    <!--데이터테이블-->
+                    <div class="data">
+                        <div class="data-head">
+                            <div class="left"><span class="title">기본정보</span>
+                                <div>
+                                    <a href="#" class="la-button inside"><span class="text">행추가</span></a>
+                                    <a href="#" class="la-button inside"><span class="text">행삭제</span></a>
+                                    <a href="#" class="la-button inside"><span class="text">변경취소</span></a>
+                                </div>
+                            </div>
+                            <div class="right">
+                                    <span class="depth-toggle">
+                                        <button type="button" class="btn btn-sm btn-link bold depth-toggle-button"
+                                                depth-name="goodsDisplay"><span>닫힘</span></button>
+                                    </span>
+                            </div>
+
+                        </div>
+                        <div class="data-body">
+                            <table class="data-table">
+                                <colgroup>
+                                    <col width="120">
+                                    <col>
+                                    <col width="120">
+                                    <col>
+                                    <col width="120">
+                                    <col>
+                                </colgroup>
+                                <tbody>
+                                <tr>
+                                    <td class="label">협력사번호/명</td>
+                                    <td>
+                                        <label class="radio-inline"><input type="radio" name="" value=""
+                                                                           checked="checked">전체</label>
+                                        <label class="radio-inline"><input type="radio" name=""
+                                                                           value="">통합설정</label>
+                                        <label class="radio-inline"><input type="radio" name=""
+                                                                           value="">개별설정</label>
+                                    </td>
+                                    <td class="label">가격</td>
+                                    <td colspan="3">
+                                        <input type="text" name="" value="" class="price">이상 ~
+                                        <input type="text" name="" value="" class="price">이하
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label">협력사번호/명</td>
+                                    <td>
+                                        <div class="checkbox">
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" name="goodsDeliveryFixFl[]" value="all"
+                                                       class="js-not-checkall" data-target-name="goodsDeliveryFixFl[]"
+                                                       checked="checked"> 전체
+                                            </label>
+                                            <label>
+                                                <input class="checkbox-inline" type="checkbox" name="" value="free">
+                                                배송비무료 </label>
+                                            <label>
+                                                <input class="checkbox-inline" type="checkbox" name=""
+                                                       value="price"> 금액별배송</label>
+                                            <label>
+                                                <input class="checkbox-inline" type="checkbox" name=""
+                                                       value="count"> 수량별배송</label>
+                                            <label>
+                                                <input class="checkbox-inline" type="checkbox" name=""
+                                                       value="weight"> 무게별배송</label>
+                                            <label>
+                                                <input class="checkbox-inline" type="checkbox" name=""
+                                                       value="fixed"> 고정배송비</label>
+                                        </div>
+                                    </td>
+                                    <td class="label">기간계 협력사번호</td>
+                                    <td>
+                                        <input type="text" class="la-input disabled" disabled="disabled">
+                                    </td>
+                                    <td class=" label">협력사번호/명
+                                    </td>
+                                    <td>
+                                        <div class="la-input-group">
+                                            <label for="la-lang-1">할인금액</label>
+                                            <input type="text" id="la-lang-1" class="la-input" style="width:100px;">
+                                        </div>
+                                        <div class="la-input-group">
+                                            <label for="la-lang-2">할인율</label>
+                                            <input type="text" id="la-lang-2" class="la-input" style="width:100px;">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label">협력사번호/명</td>
+                                    <td>
+                                        <div class="checkbox">
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" name="goodsDeliveryFixFl[]" value="all"
+                                                       class="js-not-checkall" data-target-name="goodsDeliveryFixFl[]"
+                                                       checked="checked"> 전체
+                                            </label>
+                                            <label>
+                                                <input class="checkbox-inline" type="checkbox" name="" value="free">
+                                                배송비무료 </label>
+                                            <label>
+                                                <input class="checkbox-inline" type="checkbox" name=""
+                                                       value="price"> 금액별배송</label>
+                                            <label>
+                                                <input class="checkbox-inline" type="checkbox" name=""
+                                                       value="count"> 수량별배송</label>
+                                            <label>
+                                                <input class="checkbox-inline" type="checkbox" name=""
+                                                       value="weight"> 무게별배송</label>
+                                            <label>
+                                                <input class="checkbox-inline" type="checkbox" name=""
+                                                       value="fixed"> 고정배송비</label>
+                                        </div>
+                                    </td>
+                                    <td class="label">기간계 협력사번호</td>
+                                    <td>
+                                        <input type="text" class="la-input disabled" disabled="disabled">
+                                    </td>
+                                    <td class="label">협력사번호/명</td>
+                                    <td>
+                                        <div class="la-input-group">
+                                            <label for="la-lang-1">할인금액</label>
+                                            <input type="text" id="la-lang-3" class="la-input" style="width:100px;">
+                                        </div>
+                                        <div class="la-input-group">
+                                            <label for="la-lang-2">할인율</label>
+                                            <input type="text" id="la-lang-4" class="la-input" style="width:100px;">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label">주소</td>
+                                    <td colspan="5">
+                                        <input type="text" id="input-1-2" class="la-input w20" disabled><input
+                                            type="text" id="input-1-3" class="la-input w60" disabled>
+                                        <a href="#" class="la-button small"><span class="text">주소찾기</span></a>
+                                        <input type="text" id="input-1-4" class="la-input w100 mt03">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label">텍스트 에어리어</td>
+                                    <td colspan="5">
+                                        <textarea name="memo" rows="3" class="form-control"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label">이미지올리기</td>
+                                    <td colspan="5">
+                                        <div class="mt05 mb05">
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" name="" value="y"onclick="">
+                                                체크시 개별이미지의 선택된 사이즈로 자동 리사이즈되어 등록됩니다.</label>
+                                        </div>
+                                        <div id="" class="d_dpx">
+                                            <div class="form-inline"><input type="file" name=""
+                                                                            class="form-control"
+                                                                            tabindex="-1"
+                                                                            style="position: absolute; clip: rect(0px, 0px, 0px, 0px);">
+                                                <div class=""><a href="#" class="la-button small"><span class="text">주소찾기</span></a>
+                                                    <inputtype="text" class="form-control input-sm w60" placeholder=""
+                                                    disabled=""> </div><input type="button" value="추가"
+                                                                              class="btn btn-sm btn-white btn-icon-plus" onclick="">
+                                            </div>
+                                        </div>
+                                        <div class="notice-info">
+                                            <span class="text-danger">원본 이미지</span>는 자동리사이즈 기능을 위한 이미지로 따로 <span
+                                                class="text-danger">저장되지 않습니다.</span><br>
+                                            원본 이미지를 추가로 등록한 경우, 썸네일/리스트/운영자 추가 이미지에는 <span class="text-danger">처음
+                                                        등록한 이미지만 적용</span>됩니다.
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--데이터테이블 끝-->
+                </div>
+
+
+                <!--탭-->
+                <div data-v-5153d640="" class="el-tabs">
+                    <div class="el-tabs-header is-top">
+                        <div class="el-tabs-nav-wrap is-top">
+                            <div class="el-tabs-nav-scroll">
+                                <div role="tablist" class="el-tabs-nav is-top" style="transform: translateX(0px);">
+                                    <div id="tab-0" aria-controls="pane-0" role="tab" tabindex="-1"
+                                         class="el-tabs-item is-top">
+                                        User</div>
+                                    <div id="tab-1" aria-controls="pane-1" role="tab" tabindex="-1"
+                                         class="el-tabs-item is-top">
+                                        Config</div>
+                                    <div id="tab-2" aria-controls="pane-2" role="tab" tabindex="-1"
+                                         class="el-tabs-item is-top">
+                                        Role</div>
+                                    <div id="tab-3" aria-controls="pane-3" role="tab" tabindex="0"
+                                         class="el-tabs-item is-top is-active" aria-selected="true">Task</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!---->
+                <!--리얼그리드-->
+                <div class="grid-cont full-height">
+                    <div class="grid" style="overflow: hidden;">
+                        <div class="grid-head">
+                            <div class="left">
+                                <span class="title">쿠폰목록</span>
+                                <div>
+                                    <a href="#" class="la-button inside"><span class="text">행추가</span></a>
+                                    <a href="#" class="la-button inside"><span class="text">행삭제</span></a>
+                                    <a href="#" class="la-button inside"><span class="text">변경취소</span></a>
+                                </div>
+                            </div>
+
+                            <div class="right page">
+                                총 24건
+                                <select class="form-control">
+                                    <option value="0">20건씩</option>
+                                    <option value="1">30건씩</option>
+                                    <option value="2">100건씩</option>
+                                </select>
+                                <select class="form-control">
+                                    <option value="0">20건씩</option>
+                                    <option value="1">30건씩</option>
+                                    <option value="2">100건씩</option>
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="grid-body with-head">
+                            <style>
+                                    .rg-root.rg-grid {
+                                        border: none !important;
+                                    }
+                                </style>
+                            <div id="realgrid" style="height:100%">
+                            </div>
+                        </div>
+                    </div>
+                    <!--리얼그리드 끝-->
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

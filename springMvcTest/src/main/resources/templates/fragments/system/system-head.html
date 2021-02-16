@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko-kr" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+    <!-- head 선언 -->
+    <th:block th:fragment="system-head">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <link type="text/css" rel="stylesheet" th:href="${@domainConfig.getProperty('cssUrl')} + 'luplina-reset.css'">
+        <link type="text/css" rel="stylesheet" th:href="${@domainConfig.getProperty('cssUrl')} + 'entypo-plus.css'">
+        <link rel="stylesheet" type="text/css" th:href="${@domainConfig.getProperty('cssUrl')} + 'luplino-layout.css'">
+        <link type="text/css" rel="stylesheet" th:href="${@domainConfig.getProperty('cssUrl')} + 'common.css'">
+        <link rel="stylesheet" type="text/css" th:href="${@domainConfig.getProperty('cssUrl')} + 'luplino-grid.css'">
+        <link type="text/css" rel="stylesheet" th:href="${@domainConfig.getProperty('cssUrl')} + 'luplina.css'">
+
+        <script language="JavaScript">
+            function openNewWindow(window) {
+                open(window, "NewWindow", "left=0, top=0, toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=yes, width=200, height=200");
+            }
+        </script>
+
+        <script>
+            var _baseUrl 		= "[[${@domainConfig.getProperty('baseUrl')}]]";
+            var _jsUrl 			= "[[${@domainConfig.getProperty('jsUrl')}]]";
+            var _currentLocaleLanguage = "[[${@environmentConfig.getProperty('defaultLocale')}]]";
+            var _dbLocaleLanguage = "[[${@environmentConfig.getProperty('defaultLocale')}]]";
+
+            var _bw_seq    	            = "[[${#messages.msg("baseInfoMgmt.label.badword.seq")}]]";
+            var _bw_nm    		        = "[[${#messages.msg("baseInfoMgmt.label.badword.name")}]]";
+            var _bw_desc   	        = "[[${#messages.msg("baseInfoMgmt.label.badword.desc")}]]";
+            var _use_yn    	        = "[[${#messages.msg("baseInfoMgmt.label.use.yn")}]]";
+            var _reg_dtime 		    = "[[${#messages.msg("baseInfoMgmt.label.reg.dtime")}]]";
+            var _sysRegrId 		    = "[[${#messages.msg("baseInfoMgmt.label.regr.id")}]]";
+            var _sysModDtime		    = "[[${#messages.msg("baseInfoMgmt.label.mod.dtime")}]]";
+            var _sysModrId			    = "[[${#messages.msg("baseInfoMgmt.label.modr.id")}]]";
+            var _bwNmMessage 	        = "[[${#messages.msg("baseInfoMgmt.badword.name.invalid.input")}]]";
+            var _noDataMessage         = "[[${#messages.msg("adminCommon.realgrid.search.empty")}]]";
+            var _dupMessage 	        = "[[${#messages.msg("baseInfoMgmt.badword.name.dup")}]]";
+            var _use_yn_select         = "";
+            var _title = "[[${#messages.msg("baseInfoMgmt.label.title.badword.management")}]]";
+            var _emptyExcel = "[[${#messages.msg("adminCommon.realgrid.search.empty")}]]";
+            var _rowCheckMsg = "[[${#messages.msg("adminCommon.alert.message.delete.rowCheck")}]]";
+            var _messageNotCheckedData = "[[${#messages.msg("adminCommon.grid.noselected")}]]";
+            var _initGridMessage   	= "[[${#messages.msg("adminCommon.realgrid.init")}]]";
+        </script>
+        <script type="text/javascript" th:src="${@domainConfig.getProperty('jsUrl')} + 'jquery/jquery-2.2.4.min.js'" ></script>
+<!--        <script type="text/javascript" th:src="${@domainConfig.getProperty('jsUrl')} + 'jquery/jquery-migrate-1.4.1.js'" ></script>-->
+        <script type="text/javascript" th:src="${@domainConfig.getProperty('jsUrl')} + 'jquery/jquery.all.js'" ></script>
+        <script type="text/javascript" th:src="${@domainConfig.getProperty('jsUrl')} + 'jquery/jquery.form.js'" ></script>
+        <script type="text/javascript" th:src="${@domainConfig.getProperty('jsUrl')} + 'jquery/jquery.metadata.js'" ></script>
+        <script type="text/javascript" th:src="${@domainConfig.getProperty('jsUrl')} + 'jquery/jquery.validate.js'" ></script>
+        <script type="text/javascript" th:src="${@domainConfig.getProperty('jsUrl')} + 'jquery/jquery.cookie.js'"></script>
+        <script type="text/javascript" th:src="${@domainConfig.getProperty('jsUrl')} + 'jquery/jquery.clearsearch.v1.0.3.js'"></script>
+        <script type="text/javascript" th:src="${@domainConfig.getProperty('jsUrl')} + 'common/vanilla-masker.js'"></script>
+        <script type="text/javascript" th:src="${@domainConfig.getProperty('jsUrl')} + 'common/ui.js'" ></script>
+
+        <!--    <%-- *************************************************************************
+            * common 스크립트
+            ************************************************************************* --%> -->
+        <script type="text/javascript" th:src="${@domainConfig.getProperty('jsUrl')} + 'common/common.js'" ></script>
+        <script type="text/javascript" th:src="${@domainConfig.getProperty('jsUrl')} + 'common/popup.js'" ></script>
+        <script type="text/javascript" th:src="${@domainConfig.getProperty('jsUrl')} + 'common/calendar.js'" ></script>
+        <script type="text/javascript" th:src="${@domainConfig.getProperty('jsUrl')} + 'common/text.js'" ></script>
+        <script type="text/javascript" th:src="${@domainConfig.getProperty('jsUrl')} + 'common/util.js'" ></script>
+        <script type="text/javascript" th:src="${@domainConfig.getProperty('jsUrl')} + 'common/ajax.js'" ></script>
+        <script type="text/javascript" th:src="${@domainConfig.getProperty('jsUrl')} + 'common/utf_8.js'" ></script>
+        <script type="text/javascript" th:src="${@domainConfig.getProperty('jsUrl')} + 'common/form.js'" ></script>
+        <script type="text/javascript" th:src="${@domainConfig.getProperty('jsUrl')} + 'common/validate.js'" ></script>
+        <script type="text/javascript" th:src="${@domainConfig.getProperty('jsUrl')} + 'common/cookie.js'" ></script>
+        <script type="text/javascript" th:src="${@domainConfig.getProperty('jsUrl')} + 'common/number.js'" ></script>
+        <script type="text/javascript" th:src="${@domainConfig.getProperty('jsUrl')} + 'common/class.js'" ></script>
+        <script type="text/javascript" th:src="${@domainConfig.getProperty('jsUrl')} + 'common/message.js'" ></script>
+
+
+        <!--    <script type="text/javascript">-->
+        <!--        $(document).ready(function(){-->
+        <!--            $('.clearable').clearSearch();-->
+        <!--            if( $('body').is('#menu') ){-->
+        <!--                console.log('menu');-->
+        <!--            } else {-->
+        <!--                $(document).bind("click", function (e) {-->
+        <!--                    if( window.parent.$(".contextMenu").css("display") == "block"){-->
+        <!--                        window.parent.$(".contextMenu").hide(100);-->
+        <!--                    }-->
+        <!--                });-->
+        <!--            }-->
+        <!--            // 메뉴 오른쪽 버튼 클릭 시 나오는 레이어 떴을 때 닫기,-->
+        <!--            //F12키, Ctrl + U(소스보기) 막기-->
+
+        <!--            $(document).bind('keydown',function(e){-->
+        <!--                if ( (e.keyCode == 123) || ( e.ctrlKey == true && e.keyCode == 85 ) ) {-->
+        <!--                    e.preventDefault();-->
+        <!--                    e.returnValue = false;-->
+        <!--                }-->
+        <!--            });-->
+        <!--        });-->
+        <!--    </script>-->
+
+    </th:block>
+    <!-- //head 선언 -->
+
+</html>

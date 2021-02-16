@@ -1,0 +1,123 @@
+<html lang="ko-kr" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/system-layout}">
+
+<th:block layout:fragment="page-title-area">
+    <div class="page-title">
+        <div class="left">
+            <h1><th:block th:text="${#messages.msg('baseInfoMgmt.label.title.badword.management')}"/></h1>
+        </div>
+    </div>
+</th:block>
+<th:block layout:fragment="page-search-area">
+    <form name="bwGridForm" id="bwGridForm">
+        <!-- Search List Area -->
+        <div class="table_insert" id="search_bar">
+            <table>
+<!--                <caption><th:block th:text="${#messages.msg('baseInfoMgmt.label.title.badword.management')}"/></caption>-->
+                <colgroup>
+                    <col style="width:15%;" />
+                    <col style="width:35%;" />
+                    <col style="width:15%;" />
+                    <col style="width:35%;" />
+                </colgroup>
+                <tbody>
+                <tr>
+                    <th>
+                        <th:block th:text="${#messages.msg('baseInfoMgmt.label.badword')}"/>
+                    </th>
+                    <td>
+                        <input class="inputtxt w90p" type="text" name="bwNm" id="bwNm"/>
+                    </td>
+                    <th>
+                        <th:block th:text="${#messages.msg('baseInfoMgmt.label.use.yn')}"/>
+                    </th>
+                    <td>
+                        <select id="useYn" name="useYn">
+                            <option value="">
+                                <th:block th:text="${#messages.msg('baseInfoMgmt.label.full')}"/>
+                            </option>
+                            <option value="Y">
+                                <th:block th:text="${#messages.msg('baseInfoMgmt.label.use')}"/>
+                            </option>
+                            <option value="N">
+                                <th:block th:text="${#messages.msg('baseInfoMgmt.label.disuse')}"/>
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </form>
+    <!-- Button Search -->
+    <div class="btn_sch">
+        <a href="#" class="btn_gblue" id="btn_init">
+            <th:block th:text="${#messages.msg('baseInfoMgmt.label.initialization')}"/>
+        </a>&nbsp;
+        <a href="#" class="btn_blue" id="btn_search">
+            <th:block th:text="${#messages.msg('baseInfoMgmt.label.search')}"/>
+        </a>
+    </div>
+    <!-- // Button Search -->
+</th:block>
+<th:block layout:fragment="page-grid-area">
+    <!-- grid -->
+    <div class="tit_bar marT10">
+        <h2><th:block th:text="${#messages.msg('baseInfoMgmt.label.qry.rslt')}"/></h2><span id="bwGrid-totalcount"></span>
+    </div>
+    <div class="grid_box">
+        <div class="g_areaL">
+            <a href="#" class="btn_black" id="btn_grid_add">
+                <th:block th:text="${#messages.msg('baseInfoMgmt.label.add')}"/>
+            </a>&nbsp;
+            <a href="#" class="btn_black" id="btn_grid_remove">
+                <th:block th:text="${#messages.msg('baseInfoMgmt.label.remove')}"/>
+            </a>&nbsp;
+            <a href="#" class="btn_black" id="btn_grid_save">
+                <th:block th:text="${#messages.msg('baseInfoMgmt.label.save')}"/>
+            </a>
+        </div>
+        <div class="fr" grid-id="bwGrid"></div>
+        <div class="g_areaR">
+            <a href="#" class="btn_black" id="btn_grid_excel">
+                <th:block th:text="${#messages.msg('baseInfoMgmt.label.excel')}"/>
+            </a>
+        </div>
+    </div>
+    <div class="grid_set">
+        <div class="grid" id="bwGrid" realGrid ></div>
+    </div>
+</th:block>
+<th:block layout:fragment="add-script">
+<!-- *************************************************************************
+* RealGrid Scripts
+*************************************************************************
+String realgridType = isProdEnv ? "prod" : "eval";
+	//IMPORTANT 추후 라이선스가 evaluation 버전으로 바뀔 경우 이곳의 파일명을 변경해주어야 한다.
+	String realgridScriptFile = isProdEnv ? "realgridjs.1.1.36.min.js" : "realgridjs_eval.1.1.36.min.js";
+-->
+<script th:src="${@domainConfig.getProperty('jsUrl')} + 'luplina.js'"></script>
+<script th:src="${@domainConfig.getProperty('jsUrl')} + 'luplino-core.js'"></script>
+<script th:src="${@domainConfig.getProperty('jsUrl')} + 'luplino-toast.js'"></script>
+<script th:src="${@domainConfig.getProperty('jsUrl')} + 'luplino-menu.js'"></script>
+
+    <script type="text/javascript" th:src="${@domainConfig.getProperty('jsUrl')} + 'common/realgrid/realgrid-x2-theme.js'"></script>
+    <script type="text/javascript" th:src="${@domainConfig.getProperty('jsUrl')} + 'common/realgrid/realgrid-x2.js'"></script>
+    <script type="text/javascript" th:src="${@domainConfig.getProperty('jsUrl')} + 'common/realgrid/realgrid-x2-event-handler.js'"></script>
+    <script type="text/javascript" th:src="${@domainConfig.getProperty('jsUrl')} + 'common/realgrid/jquery-realgrid-x2-1.0.js'"></script>
+    <script type="text/javascript" th:src="${@domainConfig.getProperty('jsUrl')} + 'common/realgrid/realgridjs-lic.js'"></script>
+    <script type="text/javascript" th:src="${@domainConfig.getProperty('jsUrl')} + 'common/realgrid/realgridjs_eval.1.1.26.min.js'"></script>
+    <script type="text/javascript" th:src="${@domainConfig.getProperty('jsUrl')} + 'common/realgrid/realgridjs-api.1.1.26.js'"></script>
+    <script type="text/javascript" th:src="${@domainConfig.getProperty('jsUrl')} + 'common/realgrid/jszip.min.js'"></script>
+
+    <script type="text/javascript" th:src="${@domainConfig.getProperty('jsUrl')} + 'system/system.BadWordList.bwGrid.eventHandler.js'" ></script>
+    <script type="text/javascript" th:src="${@domainConfig.getProperty('jsUrl')} + 'system/system.BadWordList.bwGrid.provider.js'" ></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            bwGrid.eventhandler.bindButtonEvent();
+        });
+    </script>
+</th:block>
+</html>
