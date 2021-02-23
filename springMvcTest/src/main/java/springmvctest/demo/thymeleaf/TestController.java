@@ -65,5 +65,10 @@ public class TestController {
         return "/layouttest/index";
     }
 
+    @GetMapping("/ho")
+    public String ho(){
+        return "/views/common/content";
+    }
+
 
 }
