@@ -4,13 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BookService {
 
     @Autowired
-    BookRepository bookRepository;
+    List<BookRepository> bookRepository;
 
-    public void setBookRepository(BookRepository bookRepository) {
-        this.bookRepository = bookRepository;
+    public void printBookRepository(){
+        System.out.println(this.bookRepository.size());
     }
+
 }

@@ -11,9 +11,7 @@ import java.util.Arrays;
 public class SpringapplicationcontextApplication {
 
     public static void main(String[] args) {
-        ApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
-        String[] beanDefinitionNames = context.getBeanDefinitionNames();
-        System.out.println(Arrays.toString(beanDefinitionNames));
+        SpringApplication.run(SpringapplicationcontextApplication.class);
     }
 
 }
