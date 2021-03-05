@@ -1,6 +1,9 @@
 package item3;
 
 import java.util.EnumSet;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 enum Operation{
     ADDITION, SUBRACTION , MULTIPLICATION , DIVIDE
@@ -26,6 +29,9 @@ public class Main {
         System.out.println("set3 = " + set3);
         System.out.println("set4 = " + set4);
         System.out.println("set5 = " + set5);
+
+        List<Integer> time = IntStream.rangeClosed(0, 23).boxed().collect(Collectors.toList());
+        List<Integer> collect = IntStream.rangeClosed(0, 23).boxed().collect(Collectors.toList());
 
     }
 }
