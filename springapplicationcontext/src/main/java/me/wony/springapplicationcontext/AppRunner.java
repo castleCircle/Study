@@ -8,6 +8,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
+import java.util.Locale;
 
 @Component
 public class AppRunner implements ApplicationRunner {
@@ -20,8 +21,11 @@ public class AppRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        Environment environment = ctx.getEnvironment();
-        System.out.println(Arrays.toString(environment.getActiveProfiles()));
-        System.out.println(Arrays.toString(environment.getDefaultProfiles()));
+        while(true){
+            String greeting = ctx.getMessage("greeting", new String[]{"sungwon"}, Locale.KOREA);
+            System.out.println(greeting);
+            Thread.sleep(1000L);
+        }
+
     }
 }
