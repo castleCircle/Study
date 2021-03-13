@@ -4,28 +4,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.ApplicationContext;
-import org.springframework.core.env.Environment;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
-import java.util.Locale;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 
 @Component
 public class AppRunner implements ApplicationRunner {
 
     @Autowired
-    ApplicationContext ctx;
+    ApplicationContext resourceLoader;
 
-    @Autowired
-    BookRepository bookRepository;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        while(true){
-            String greeting = ctx.getMessage("greeting", new String[]{"sungwon"}, Locale.KOREA);
-            System.out.println(greeting);
-            Thread.sleep(1000L);
-        }
+        System.out.println(resourceLoader.getClass());
+        Resource resource = resourceLoader.getResource("classpath:test.txt");
+        System.out.println(resource.getClass());
 
+        System.out.println(resource.exists());
+        System.out.println(resource.getDescription());
     }
 }
