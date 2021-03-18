@@ -11,27 +11,27 @@ public class UserDaoService {
     private static List<User> users = new ArrayList<>();
     private static int userCount = 3;
 
-    static{
-        users.add(new User(1,"sungwon",new Date()));
-        users.add(new User(2,"ALice",new Date()));
-        users.add(new User(3,"Test",new Date()));
+    static {
+        users.add(new User(1, "sungwon", new Date()));
+        users.add(new User(2, "ALice", new Date()));
+        users.add(new User(3, "Test", new Date()));
     }
 
-    public List<User> findAll(){
+    public List<User> findAll() {
         return users;
     }
 
-    public User save(User user){
-        if(user.getId() == null){
+    public User save(User user) {
+        if (user.getId() == null) {
             user.setId(++userCount);
         }
         users.add(user);
         return user;
     }
 
-    public User findOne(int id){
-        for(User user:users){
-            if(user.getId()==id){
+    public User findOne(int id) {
+        for (User user : users) {
+            if (user.getId() == id) {
                 return user;
             }
         }

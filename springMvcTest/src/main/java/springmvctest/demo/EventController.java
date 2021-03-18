@@ -27,9 +27,8 @@ public class EventController {
 //    }
 
 
-
     @GetMapping("/events/form/name")
-    public String eventsFormName(Model model){
+    public String eventsFormName(Model model) {
         throw new EventException();
 //        model.addAttribute("event",new Event());
 //        return "/events/form-name";
@@ -37,16 +36,16 @@ public class EventController {
 
     @PostMapping("/events/form/name")
     public String eventsFormNameSubmit(@Validated @ModelAttribute Event event,
-                              BindingResult bindingResult){
-        if(bindingResult.hasErrors()){
+                                       BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
             return "/events/form-name";
         }
         return "redirect:/events/form/limit";
     }
 
     @GetMapping("/events/form/limit")
-    public String eventsFormLimit(@ModelAttribute Event event,Model model){
-        model.addAttribute("event",event);
+    public String eventsFormLimit(@ModelAttribute Event event, Model model) {
+        model.addAttribute("event", event);
         return "/events/form-limit";
     }
 
@@ -54,21 +53,21 @@ public class EventController {
     public String eventsFormLimitSubmit(@Validated @ModelAttribute Event event,
                                         BindingResult bindingResult,
                                         SessionStatus sessionStatus,
-                                        RedirectAttributes attributes){
-        if(bindingResult.hasErrors()){
+                                        RedirectAttributes attributes) {
+        if (bindingResult.hasErrors()) {
             return "/events/form-limit";
         }
         sessionStatus.setComplete();
-        attributes.addFlashAttribute("newEvent",event);
+        attributes.addFlashAttribute("newEvent", event);
         return "redirect:/events/list";
     }
 
 
     @GetMapping("/events/list")
-    public String getEvents(Model model,HttpSession httpSession){
+    public String getEvents(Model model, HttpSession httpSession) {
         LocalDateTime visitTime = (LocalDateTime) httpSession.getAttribute("visitTime");
 
-        Event newEvent = (Event)model.asMap().get("newEvent");
+        Event newEvent = (Event) model.asMap().get("newEvent");
 
         Event event = new Event();
         event.setName("Spring");

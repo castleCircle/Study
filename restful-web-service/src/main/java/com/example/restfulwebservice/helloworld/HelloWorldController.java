@@ -14,28 +14,28 @@ import java.util.stream.Collectors;
 public class HelloWorldController {
 
     @GetMapping(path = "/hello-world")
-    public String helloWorld(){
+    public String helloWorld() {
         return "Hello World";
     }
 
     @GetMapping(path = "/hello-world-bean")
-    public HelloWorldBean helloWorldBean(){
+    public HelloWorldBean helloWorldBean() {
         return new HelloWorldBean("Hello World");
     }
 
     @GetMapping(path = "/hello-world-bean/path-variable/{name}")
-    public HelloWorldBean helloWorldBean(@PathVariable String name){
-        return new HelloWorldBean(String.format("Hello World, %s",name));
+    public HelloWorldBean helloWorldBean(@PathVariable String name) {
+        return new HelloWorldBean(String.format("Hello World, %s", name));
     }
 
     @GetMapping("/test")
-    public String test(){
+    public String test() {
 
-        TestBean t1 = new TestBean("1","t1");
-        TestBean t2 = new TestBean("1","t2");
-        TestBean t3 = new TestBean("2","t3");
-        TestBean t4 = new TestBean("2","t4");
-        TestBean t5 = new TestBean("3","t5");
+        TestBean t1 = new TestBean("1", "t1");
+        TestBean t2 = new TestBean("1", "t2");
+        TestBean t3 = new TestBean("2", "t3");
+        TestBean t4 = new TestBean("2", "t4");
+        TestBean t5 = new TestBean("3", "t5");
 
         ArrayList<TestBean> list = new ArrayList<>();
         list.add(t1);
@@ -44,7 +44,7 @@ public class HelloWorldController {
         list.add(t4);
         list.add(t5);
 
-        Map<String,ArrayList> map = new TreeMap<>();
+        Map<String, ArrayList> map = new TreeMap<>();
 
         Map<String, List<TestBean>> collect = list.stream().collect(Collectors.groupingBy(TestBean::getCd));
 

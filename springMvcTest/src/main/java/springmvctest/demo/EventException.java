@@ -1,4 +1,4 @@
 package springmvctest.demo;
 
-public class EventException extends RuntimeException{
+public class EventException extends RuntimeException {
 }

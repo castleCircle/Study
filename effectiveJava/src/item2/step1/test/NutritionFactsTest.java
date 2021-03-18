@@ -7,7 +7,7 @@ public class NutritionFactsTest {
     private final int servingSize;
     private final int servings;
 
-    static class Builder{
+    static class Builder {
         private final int calories;
         private final int fat;
         private int servingSize;
@@ -18,17 +18,17 @@ public class NutritionFactsTest {
             this.fat = fat;
         }
 
-        public Builder servingSize(int val){
+        public Builder servingSize(int val) {
             this.servingSize = val;
             return this;
         }
 
-        public Builder servings(int val){
+        public Builder servings(int val) {
             this.servings = val;
             return this;
         }
 
-        public NutritionFactsTest build(){
+        public NutritionFactsTest build() {
             return new NutritionFactsTest(this);
         }
     }

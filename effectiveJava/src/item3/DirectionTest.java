@@ -1,24 +1,26 @@
 package item3;
 
-enum Direction{
+enum Direction {
     EAST("east is good") {
-        public void getDirection(){
+        public void getDirection() {
             System.out.println("east");
         }
     },
     WEST("west is good") {
-        public void getDirection(){
+        public void getDirection() {
             System.out.println("west");
         }
     };
 
     private final String key;
+
     public String getKey() {
         return key;
     }
+
     public abstract void getDirection();
 
-    private Direction(String str){
+    private Direction(String str) {
         this.key = str;
     }
 }

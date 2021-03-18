@@ -12,8 +12,8 @@ public class EventValidator implements Validator {
     @Override
     public void validate(Object o, Errors errors) {
         Event event = (Event) o;
-        if(event.getName().equalsIgnoreCase("aaa")){
-            errors.rejectValue("name","wrongValue","default");
+        if (event.getName().equalsIgnoreCase("aaa")) {
+            errors.rejectValue("name", "wrongValue", "default");
         }
     }
 }

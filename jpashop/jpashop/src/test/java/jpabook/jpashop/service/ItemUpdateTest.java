@@ -14,8 +14,8 @@ public class ItemUpdateTest {
     EntityManager em;
 
     @Test
-    public void updateTest() throws Exception{
-        em.find(Book.class,1L);
+    public void updateTest() throws Exception {
+        em.find(Book.class, 1L);
     }
 
 }

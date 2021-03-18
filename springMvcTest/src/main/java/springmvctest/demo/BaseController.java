@@ -6,13 +6,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 
-@ControllerAdvice(assignableTypes = {EventController.class,EventApi.class})
+@ControllerAdvice(assignableTypes = {EventController.class, EventApi.class})
 //@RestControllerAdvice
 public class BaseController {
 
-    @ExceptionHandler({EventException.class,RuntimeException.class})
-    public String eventErrorHandler(RuntimeException ex, Model model){
-        model.addAttribute("message","runtime error");
+    @ExceptionHandler({EventException.class, RuntimeException.class})
+    public String eventErrorHandler(RuntimeException ex, Model model) {
+        model.addAttribute("message", "runtime error");
         return "error";
     }
 //
@@ -23,14 +23,14 @@ public class BaseController {
 //    }
 
     @InitBinder("event")
-    public void initEventBinder(WebDataBinder webDataBinder){
+    public void initEventBinder(WebDataBinder webDataBinder) {
         webDataBinder.setDisallowedFields("id");
         webDataBinder.addValidators(new EventValidator());
     }
 
     @ModelAttribute
-    public void categories(Model model){
-        model.addAttribute("categories", Arrays.asList("study","seminar","hobby"));
+    public void categories(Model model) {
+        model.addAttribute("categories", Arrays.asList("study", "seminar", "hobby"));
     }
 
 }
