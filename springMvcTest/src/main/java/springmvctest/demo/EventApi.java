@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 public class EventApi {
 
     @PostMapping("/events")
-    public Event createEvent(HttpEntity<Event> request){
+    public Event createEvent(HttpEntity<Event> request) {
         MediaType contentType = request.getHeaders().getContentType();
         System.out.println(contentType);
         return request.getBody();

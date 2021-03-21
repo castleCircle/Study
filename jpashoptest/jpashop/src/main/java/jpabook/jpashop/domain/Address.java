@@ -6,13 +6,14 @@ import lombok.Setter;
 import javax.persistence.Embeddable;
 
 @Embeddable
-@Getter @Setter
+@Getter
+@Setter
 public class Address {
     String city;
     String street;
     String zipcode;
 
-    protected Address(){
+    protected Address() {
 
     }
 

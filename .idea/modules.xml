@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/springMvcTest/demo.iml" filepath="$PROJECT_DIR$/springMvcTest/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/restful-web-service/restful-web-service.iml" filepath="$PROJECT_DIR$/restful-web-service/restful-web-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springapplicationcontext/springapplicationcontext.iml" filepath="$PROJECT_DIR$/springapplicationcontext/springapplicationcontext.iml" />
+      <module fileurl="file://$PROJECT_DIR$/study.iml" filepath="$PROJECT_DIR$/study.iml" />
+    </modules>
+  </component>
+</project>

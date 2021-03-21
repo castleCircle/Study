@@ -24,15 +24,15 @@ public class FileController {
     private ResourceLoader resourceLoader;
 
     @GetMapping("/file")
-    public String fileUploadForm(){
+    public String fileUploadForm() {
         return "files/index";
     }
 
     @PostMapping("/file")
-    public String fileUpload(@RequestParam MultipartFile file, RedirectAttributes attributes){
+    public String fileUpload(@RequestParam MultipartFile file, RedirectAttributes attributes) {
         //save
         String message = file.getOriginalFilename() + " is uploaded";
-        attributes.addFlashAttribute("message",message);
+        attributes.addFlashAttribute("message", message);
         return "redirect:/file";
     }
 

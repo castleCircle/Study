@@ -6,9 +6,10 @@ public enum EnumSingleTon {
 
     private String name = "default";
 
-    private EnumSingleTon(){}
+    private EnumSingleTon() {
+    }
 
-    public EnumSingleTon getInstance(){
+    public EnumSingleTon getInstance() {
         return INSTANCE;
     }
 

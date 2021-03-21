@@ -8,11 +8,13 @@ import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="dtype")
-@Getter @Setter
+@DiscriminatorColumn(name = "dtype")
+@Getter
+@Setter
 public abstract class Item {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     @Column(name = "item_id")
     private Long id;
 
@@ -20,13 +22,13 @@ public abstract class Item {
     private int price;
     private int stockQuantity;
 
-    public void addStock(int quantity){
-        this.stockQuantity+=quantity;
+    public void addStock(int quantity) {
+        this.stockQuantity += quantity;
     }
 
-    public void removeStock(int quantity){
+    public void removeStock(int quantity) {
         int restStock = this.stockQuantity - quantity;
-        if(restStock < 0){
+        if (restStock < 0) {
             throw new NotEnoughStockException("need more stock");
         }
         this.stockQuantity = restStock;

@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.RequestEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
@@ -29,7 +30,7 @@ class EventApiTest {
     MockMvc mockMvc;
 
     @Test
-    public void createEvent() throws Exception{
+    public void createEvent() throws Exception {
 
         Event event = new Event();
         event.setName("keesun");

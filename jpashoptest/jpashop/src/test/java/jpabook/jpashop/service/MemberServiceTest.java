@@ -26,16 +26,16 @@ class MemberServiceTest {
     EntityManager em;
 
     @Test
-    public void 회원가입() throws Exception{
+    public void 회원가입() throws Exception {
         Member member = new Member();
         member.setName("sungwon");
 
         Long join = memberService.join(member);
-        Assertions.assertEquals(member,memberService.findOne(join));
+        Assertions.assertEquals(member, memberService.findOne(join));
     }
 
     @Test
-    public void 중복_회원_예외() throws Exception{
+    public void 중복_회원_예외() throws Exception {
         Member member = new Member();
         member.setName("test1");
 
@@ -48,7 +48,7 @@ class MemberServiceTest {
             memberService.join(member1);
         });
 
-        Assertions.assertEquals("이미 존재하는 회원입니다.",illegalArgumentException.getMessage());
+        Assertions.assertEquals("이미 존재하는 회원입니다.", illegalArgumentException.getMessage());
 
     }
 

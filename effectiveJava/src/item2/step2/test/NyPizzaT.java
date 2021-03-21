@@ -2,13 +2,14 @@ package item2.step2.test;
 
 import java.util.Objects;
 
-public class NyPizzaT extends PizzaT{
+public class NyPizzaT extends PizzaT {
 
     private final SizeEnum size;
 
-    static class Builder extends PizzaT.Builder{
+    static class Builder extends PizzaT.Builder {
         private final SizeEnum size;
-        public Builder(SizeEnum size){
+
+        public Builder(SizeEnum size) {
             this.size = Objects.requireNonNull(size);
         }
 

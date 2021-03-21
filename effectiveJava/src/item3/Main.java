@@ -5,19 +5,19 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-enum Operation{
-    ADDITION, SUBRACTION , MULTIPLICATION , DIVIDE
+enum Operation {
+    ADDITION, SUBRACTION, MULTIPLICATION, DIVIDE
 }
 
 public class Main {
     public static void main(String[] args) {
 
-        EnumSet<Operation> set1,set2,set3,set4,set5;
+        EnumSet<Operation> set1, set2, set3, set4, set5;
 
         set1 = EnumSet.allOf(Operation.class);
-        set2 = EnumSet.of(Operation.ADDITION,Operation.MULTIPLICATION);
+        set2 = EnumSet.of(Operation.ADDITION, Operation.MULTIPLICATION);
         set3 = EnumSet.complementOf(set2);
-        set4 = EnumSet.range(Operation.ADDITION,Operation.MULTIPLICATION);
+        set4 = EnumSet.range(Operation.ADDITION, Operation.MULTIPLICATION);
 
         set5 = EnumSet.noneOf(Operation.class);
         set5.add(Operation.DIVIDE);

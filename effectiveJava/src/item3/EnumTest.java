@@ -1,8 +1,8 @@
 package item3;
 
-enum Fruit{
-    APPLE("red"){
-        public void print(){
+enum Fruit {
+    APPLE("red") {
+        public void print() {
             System.out.println("Apple color is red");
         }
     },
@@ -14,7 +14,7 @@ enum Fruit{
         return color;
     }
 
-    public void print(){
+    public void print() {
         System.out.println("none");
     }
 

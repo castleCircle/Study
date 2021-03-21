@@ -8,10 +8,10 @@ public abstract class PizzaT {
 
     final private Set<ToppingEnum> toppings;
 
-    abstract static class Builder{
+    abstract static class Builder {
         EnumSet<ToppingEnum> toppings = EnumSet.noneOf(ToppingEnum.class);
 
-        public Builder addTopping(ToppingEnum toppingEnum){
+        public Builder addTopping(ToppingEnum toppingEnum) {
             toppings.add(Objects.requireNonNull(toppingEnum));
             return self();
         }
@@ -21,7 +21,7 @@ public abstract class PizzaT {
         public abstract Builder self();
     }
 
-    public PizzaT(Builder builder){
+    public PizzaT(Builder builder) {
         this.toppings = builder.toppings.clone();
     }
 

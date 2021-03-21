@@ -31,7 +31,7 @@ class EventControllerTest {
     MockMvc mockMvc;
 
     @Test
-    public void eventForm() throws Exception{
+    public void eventForm() throws Exception {
         MockHttpServletRequest request = mockMvc.perform(get("/events/form"))
                 .andDo(print())
                 .andExpect(view().name("/events/form"))
@@ -44,7 +44,7 @@ class EventControllerTest {
 
 
     @Test
-    public void helloTest() throws Exception{
+    public void helloTest() throws Exception {
 //        mockMvc.perform(post("/events?name=keesun"))
 //                .andDo(print()).andExpect(status().isOk())
 //                .andExpect(jsonPath("name").value("keesun"));
@@ -59,13 +59,13 @@ class EventControllerTest {
     }
 
     @Test
-    public void getEvents() throws Exception{
+    public void getEvents() throws Exception {
 
         Event event = new Event();
         event.setName("Winter");
         event.setLimit(10000);
 
-        mockMvc.perform(get("/events/list").sessionAttr("visitTime", LocalDateTime.now()).flashAttr("newEvent",event))
+        mockMvc.perform(get("/events/list").sessionAttr("visitTime", LocalDateTime.now()).flashAttr("newEvent", event))
                 .andDo(print()).andExpect(status().isOk()).andExpect(xpath("//p").nodeCount(2));
 
     }
