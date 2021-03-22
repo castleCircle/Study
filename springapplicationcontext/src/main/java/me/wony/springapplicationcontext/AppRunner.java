@@ -24,26 +24,6 @@ public class AppRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        Event event = new Event();
-        EventValidator eventValidator = new EventValidator();
-        Errors errors = new BeanPropertyBindingResult(event,"event1");
-        eventValidator.validate(event,errors);
-//        validate.validate(event,errors);
-        errors.getAllErrors().forEach(e->{
-            System.out.println("=====error code=====");
-            Arrays.stream(e.getCodes()).forEach(System.out::println);
-            System.out.println(e.getDefaultMessage());
-        });
 
-        Test test = new Test();
-        TestValidator testValidator = new TestValidator();
-        Errors errors1 = new BeanPropertyBindingResult(test,"event2");
-        testValidator.validate(test,errors1);
-
-        errors1.getAllErrors().forEach(e->{
-            System.out.println("=====errors code=====");
-            Arrays.stream(e.getCodes()).forEach(System.out::println);
-            System.out.println(e.getDefaultMessage());
-        });
     }
 }
