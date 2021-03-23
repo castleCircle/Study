@@ -18,6 +18,7 @@ public class EventControllerTest {
     @Test
     public void getTest() throws Exception {
         mockMvc.perform(get("/event/1")).andExpect(status().isOk()).andExpect(content().string("1"));
+        mockMvc.perform(get("/test/2")).andExpect(status().isOk()).andExpect(content().string("2"));
     }
 
 }
