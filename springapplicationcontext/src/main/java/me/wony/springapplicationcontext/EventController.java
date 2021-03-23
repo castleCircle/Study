@@ -11,7 +11,7 @@ public class EventController {
 
     @InitBinder
     public void init(WebDataBinder webDataBinder){
-        webDataBinder.registerCustomEditor(Event.class,new EventEditor());
+//        webDataBinder.registerCustomEditor(Event.class,new EventEditor());
         webDataBinder.registerCustomEditor(Test.class,new TestEditor());
     }
 
