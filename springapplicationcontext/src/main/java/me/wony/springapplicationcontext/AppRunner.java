@@ -10,11 +10,12 @@ import org.springframework.stereotype.Component;
 public class AppRunner implements ApplicationRunner {
 
     @Autowired
-    TestService testService;
+    EventService eventService;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        testService.a();
-        testService.b();
+        eventService.createEvent();
+        eventService.publishEvent();
+        eventService.deleteEvent();
     }
 }
