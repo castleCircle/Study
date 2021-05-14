@@ -6,6 +6,8 @@ import java.util.List;
 public class RawItem {
 
     public static void main(String[] args) {
+        String s = "";
+        System.out.println(s.length());
         List<String> stringList = new ArrayList<>();
         unsafeAdd(stringList,0);
         stringList.get(0);
