@@ -1,0 +1,3 @@
+// 06 - 14
+index skip scan
+http://www.gurubee.net/lecture/2266
