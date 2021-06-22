@@ -50,3 +50,33 @@ FROM (
         (SELECT LEVEL GB FROM DUAL CONNECT BY LEVEL <= 4)
      )
 GROUP BY GB;
+
+
+-- 일별 누적 접속자 통게 구하기
+
+CREATE TABLE t
+AS
+SELECT '20150801' dt, 1 id FROM dual
+UNION ALL SELECT '20150801', 2 FROM dual
+UNION ALL SELECT '20150801', 1 FROM dual
+UNION ALL SELECT '20150802', 1 FROM dual
+UNION ALL SELECT '20150802', 2 FROM dual
+UNION ALL SELECT '20150802', 2 FROM dual
+UNION ALL SELECT '20150803', 3 FROM dual
+UNION ALL SELECT '20150804', 4 FROM dual
+UNION ALL SELECT '20150804', 1 FROM dual
+UNION ALL SELECT '20150805', 1 FROM dual;
+
+ 
+
+SELECT dt 
+     , all_cnt AS 접속건수
+     , id_cnt AS 접속자수
+     , sum(all_cnt) OVER(ORDER BY dt) AS 누적접속건수
+     , (SELECT count(DISTINCT(id)) FROM t WHERE t.dt <= a.dt) AS 누적접속자수
+  FROM (
+    SELECT dt , count(*) AS all_cnt , count(DISTINCT id) AS id_cnt
+      FROM t
+     GROUP BY dt
+     ORDER BY dt
+  )a
