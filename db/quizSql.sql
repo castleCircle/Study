@@ -80,3 +80,14 @@ SELECT dt
      GROUP BY dt
      ORDER BY dt
   )a
+
+
+-- 공통점이 가장 많은 친구 찾기
+  
+  SELECT A.NM
+       , A.C1 , A.C2, A.C3 , A.C4
+    FROM t A
+    LEFT OUTER JOIN T UNPIVOT 
+         (C FOR T IN (C1,C2,C3,C4)) B
+      ON B.NM != A.NM 
+     AND B.C IN (A.C1,A.C2,A.C3,A.C4)
