@@ -1,0 +1,8 @@
+2021-06-21
+- 조인의 최적화
+
+
+2021-07-03
+- 조인의 최적화
+http://www.gurubee.net/lecture/1020
+http://wiki.gurubee.net/pages/viewpage.action?pageId=688167

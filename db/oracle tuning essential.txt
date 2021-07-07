@@ -1,0 +1,31 @@
+SELECT * FROM ITEM WHERE item_nm LIKE '%버거%' ORDER BY item_nm;
+
+
+SELECT * FROM ITEM ORDER BY item_nm;
+
+
+SELECT * FROM ITEM WHERE item_nm IS NOT NULL ORDER BY item_nm;
+
+--page 79
+
+SELECT * FROM item WHERE item_id = 11
+
+SELECT * FROM uitem WHERE item_id = 11
+
+SELECT * FROM uitem WHERE uitem_id = 11
+
+
+SELECT * FROM item WHERE item_id BETWEEN 1 AND 10
+
+SELECT * FROM item WHERE item_nm IS NOT NULL;
+
+SELECT * FROM item WHERE item_nm LIKE '한우%'
+
+
+
+SELECT /*+ INDEX(A ORD_ITEM_PK)*/ * FROM ord_item A WHERE rownum <= 100
+UNION all
+SELECT /*+ INDEX(OIR ORD_ITEM_RANDOM_PK)*/ * FROM ORD_ITEM_RANDOM oir WHERE rownum <= 100 
+
+--page 98
+
