@@ -6,3 +6,9 @@
 - 조인의 최적화
 http://www.gurubee.net/lecture/1020
 http://wiki.gurubee.net/pages/viewpage.action?pageId=688167
+
+
+2021-07-13
+- Join
+http://www.gurubee.net/lecture/1020
+http://wiki.gurubee.net/pages/viewpage.action?pageId=26744745 (조인 기본 원리)
