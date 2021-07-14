@@ -12,3 +12,10 @@ http://wiki.gurubee.net/pages/viewpage.action?pageId=688167
 - Join
 http://www.gurubee.net/lecture/1020
 http://wiki.gurubee.net/pages/viewpage.action?pageId=26744745 (조인 기본 원리)
+
+2021-07-14
+- SQL 전문가 가이드 - 고급 조인 기업
+: 인라인뷰
+
+배타적 관계의 조인
+http://wiki.gurubee.net/pages/viewpage.action?pageId=26745104
