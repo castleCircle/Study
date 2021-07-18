@@ -1,11 +1,15 @@
 package modernjavainaction.chap05;
 
+import org.apache.commons.math3.geometry.partitioning.BSPTree;
+import scala.Int;
+
 import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.toList;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class PuttingIntoPractice {
 
@@ -23,6 +27,62 @@ public class PuttingIntoPractice {
         new Transaction(mario, 2012, 700),
         new Transaction(alan, 2012, 950)
     );
+
+    //p177 1번
+    System.out.println("====TEST START====");
+    System.out.println("1.");
+    List<Transaction> collect = transactions.stream()
+            .filter(t -> t.getYear() == 2011)
+            .sorted(comparing(Transaction::getValue))
+            .collect(toList());
+    System.out.println(collect.toString());
+
+    System.out.println("2.");
+    List<String> collect1 = transactions.stream()
+            .map(t->t.getTrader().getCity())
+            .distinct().collect(toList());
+    System.out.println(collect1);
+
+    System.out.println("3.");
+    List<Trader> cambridge = transactions.stream()
+            .map(t -> t.getTrader())
+            .filter(t -> t.getCity().equals("Cambridge"))
+            .distinct()
+            .sorted(comparing(Trader::getName))
+            .collect(toList());
+
+    System.out.println(cambridge.toString());
+
+    System.out.println("4.");
+    String str4 = transactions.stream().map(t -> t.getTrader().getName())
+            .distinct()
+            .sorted()
+            .reduce("", (n1, n2) -> n1 + " " +n2);
+    System.out.println(str4);
+
+    System.out.println("5.");
+    boolean milan = transactions.stream().anyMatch(t -> t.getTrader().getCity().equals("Milan"));
+    System.out.println(milan);
+
+    System.out.println("6.");
+    transactions.stream().filter(t -> t.getTrader().getCity().equals("Cambridge"))
+            .map(t -> t.getValue())
+            .forEach(System.out::println);
+
+
+    System.out.println("7.");
+    Optional<Integer> max = transactions.stream().map(t -> t.getValue()).max(Integer::compareTo);
+    Integer max1 = transactions.stream().map(t -> t.getValue()).reduce(0,Integer::max);
+    System.out.println(max);
+    System.out.println(max1);
+
+    System.out.println("8.");
+
+    Optional<Transaction> min = transactions.stream().min(comparing(Transaction::getValue));
+    System.out.println(min.map(String::valueOf).orElse("No transaction"));
+
+
+    System.out.println("====TEST END====");
 
     // 질의 1: 2011년부터 발생한 모든 거래를 찾아 값으로 정렬(작은 값에서 큰 값).
     List<Transaction> tr2011 = transactions.stream()

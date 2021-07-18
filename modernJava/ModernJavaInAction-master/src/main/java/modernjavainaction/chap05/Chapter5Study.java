@@ -2,10 +2,7 @@ package modernjavainaction.chap05;
 
 import modernjavainaction.chap04.Dish;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -58,6 +55,35 @@ public class Chapter5Study {
                 System.out.println(Arrays.toString(tt));
             });
         });
+
+        //p169
+        System.out.println("=========[2021-07-18]=========");
+        List<Integer> someNumbers = Arrays.asList(1,2,3,4,5);
+        Optional<Integer> first = someNumbers.stream().map(n -> n * n).filter(n -> n % 3 == 0).findFirst();
+        if(first.isPresent()){
+            System.out.println(first.get());
+        }
+
+        List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5);
+        Integer reduce = integers.stream().reduce(3, (q, w) -> q + w);
+        Optional<Integer> reduce1 = integers.stream().reduce((q, w) -> q + w);
+        System.out.println(reduce);
+        System.out.println(reduce1);
+
+        System.out.println("=====");
+        Optional<Integer> reduce2 = integers.stream().reduce(Integer::max);
+        System.out.println(reduce2);
+
+        System.out.println("===p173 Quiz==");
+        Integer reduce3 = menu.stream().map(Dish::getName)
+                .distinct()
+                .map(t -> 1)
+                .reduce(0, (aa, bb) -> aa + bb);
+        System.out.println(reduce3);
+
+        System.out.println("===p177 Quiz==");
+
+
 
     }
 
