@@ -10,6 +10,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class PuttingIntoPractice {
 
@@ -137,6 +139,25 @@ public class PuttingIntoPractice {
         .min(comparing(Transaction::getValue));
     // 거래가 없을 때 기본 문자열을 사용할 수 있도록발견된 거래가 있으면 문자열로 바꾸는 꼼수를 사용함(예, the Stream is empty)
     System.out.println(smallestTransaction.map(String::valueOf).orElse("No transactions found"));
+
+    //숫자형 스트림
+
+    //p188
+    //
+    System.out.println("========2021-07-19========");
+    Stream<String> stream = Stream.of("a","b","c");
+    stream.map(String::toUpperCase).forEach(t-> System.out.println(t));
+
+    int[] numbers = {2,3,5,7,13};
+    int sum = Arrays.stream(numbers).sum();
+    System.out.println(sum);
+
+    Stream.iterate(0,n->n+2).limit(10).forEach(System.out::println);
+
+    Stream.iterate(new int[]{0,1}, n-> new int[]{n[1],n[0]+n[1]}).limit(20).forEach(t-> System.out.println("(" + t[0] + "," + t[1] + ")"));
+
+    IntStream.iterate(0,n->n<100,n->n+4).forEach(System.out::println);
+
   }
 
 }
