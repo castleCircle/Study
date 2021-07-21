@@ -2,6 +2,7 @@ package modernjavainaction.chap06;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static modernjavainaction.chap06.GroupingTransactions.transactions;
@@ -28,6 +29,23 @@ public class MainClass {
         Integer collect5 = Dish.menu.stream().collect(Collectors.reducing(0, Dish::getCalories, (i, j) -> i + j));
         System.out.println(collect5);
 
+        Integer collect6 = Dish.menu.stream().collect(Collectors.reducing(0, Dish::getCalories, Integer::sum));
+        System.out.println(collect6);
+
+        Optional<Integer> reduce = Dish.menu.stream().map(Dish::getCalories).reduce(Integer::sum);
+        Integer integer = reduce.orElse(0);
+        System.out.println(integer);
+
+        Map<Grouping.CaloricLevel, List<Dish>> collect7 = Dish.menu.stream().collect(Collectors.groupingBy(dish -> {
+            if (dish.getCalories() <= 400) {
+                return Grouping.CaloricLevel.DIET;
+            } else if (dish.getCalories() <= 700) {
+                return Grouping.CaloricLevel.NORMAL;
+            } else {
+                return Grouping.CaloricLevel.FAT;
+            }
+        }));
+        System.out.println(collect7);
 
     }
 
