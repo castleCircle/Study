@@ -47,6 +47,16 @@ public class MainClass {
         }));
         System.out.println(collect7);
 
+        Map<Dish.Type, List<Dish>> collect9 = Dish.menu.stream().collect(Collectors.groupingBy(Dish::getType));
+
+        Map<Dish.Type, List<String>> collect8 = Dish.menu.stream().collect(Collectors.groupingBy(Dish::getType, Collectors.mapping(Dish::getName, Collectors.toList())));
+        System.out.println(collect8);
+
+        Map<Dish.Type, Long> collect10 = Dish.menu.stream().collect(Collectors.groupingBy(Dish::getType, Collectors.counting()));
+        System.out.println(collect10);
+
+        Dish.menu.stream().collect(Collectors.groupingBy(Dish::getType,Collectors.collectingAndThen()));
+
     }
 
 }
