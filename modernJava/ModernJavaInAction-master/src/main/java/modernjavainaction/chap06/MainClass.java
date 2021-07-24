@@ -1,9 +1,13 @@
 package modernjavainaction.chap06;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import static modernjavainaction.chap06.GroupingTransactions.transactions;
 
@@ -55,8 +59,30 @@ public class MainClass {
         Map<Dish.Type, Long> collect10 = Dish.menu.stream().collect(Collectors.groupingBy(Dish::getType, Collectors.counting()));
         System.out.println(collect10);
 
-        Dish.menu.stream().collect(Collectors.groupingBy(Dish::getType,Collectors.collectingAndThen()));
+        Map<Boolean, List<Dish>> collect11 = Dish.menu.stream().collect(Collectors.partitioningBy(Dish::isVegetarian));
+        System.out.println(collect11);
 
+
+        IntStream.range(0,5).forEach(i-> System.out.println(i));
+        System.out.println("=======");
+        IntStream.range(0,5).boxed().forEach(i-> System.out.println(i));
+
+        Stream<Integer> boxed = IntStream.range(0, 5).boxed();
+        IntStream range = IntStream.range(0, 5);;
+        System.out.println("====================");
+        IntStream.rangeClosed(0,5).forEach(i-> System.out.println(i));
+
+        Integer collect12 = Dish.menu.stream().collect(Collectors.collectingAndThen(Collectors.toList(), List::size));
+        System.out.println(collect12);
+
+        Map<Boolean, List<Integer>> collect13 = IntStream.rangeClosed(2, 10).boxed().collect(Collectors.partitioningBy(candidate -> PartitionPrimeNumbers.isPrime(candidate)));
+
+
+
+    }
+
+    public static Supplier<List<T>> supplier(){
+        return ()->new ArrayList<T>();
     }
 
 }
